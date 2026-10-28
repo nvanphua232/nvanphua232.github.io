@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Phu</title>
+  <!-- Sử dụng FontAwesome để hiển thị các biểu tượng (icons) -->
+  <link rel="stylesheet" href="stylecv.css">
+  <style>
+    /* Reset CSS cơ bản */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333333;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* Container chính của CV */
+    .cv-container {
+      width: 800px;
+      background-color: #ffffff;
+      display: flex;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ================= CỘT BÊN TRÁI (SIDEBAR) ================= */
+    .sidebar {
+      width: 32%;
+      background-color: #e5e5e5;
+      padding: 25px 20px;
+      box-sizing: border-box;
+    }
+
+    .profile-img-container {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .name-title {
+      margin-bottom: 20px;
+    }
+
+    .name-title h1 {
+      font-size: 26px;
+      color: #3b5998;
+      font-weight: normal;
+    }
+
+    .name-title p {
+      font-size: 14px;
+      color: #444;
+      text-align: right;
+      margin-top: 5px;
+    }
+
+    /* Danh sách liên hệ */
+    .contact-list {
+      list-style: none;
+      margin-bottom: 25px;
+      font-size: 12px;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .contact-list .icon {
+      width: 22px;
+      height: 22px;
+      background-color: #3b5998;
+      color: #fff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    .contact-list a {
+      color: #3b5998;
+      text-decoration: none;
+    }
+
+    /* Tiêu đề mục bên cột trái */
+    .sidebar-title {
+      font-size: 20px;
+      color: #333;
+      border-bottom: 1px solid #777;
+      padding-bottom: 2px;
+      margin-bottom: 12px;
+      font-weight: normal;
+    }
+
+    .about-me-text {
+      font-size: 11px;
+      line-height: 1.4;
+      text-align: justify;
+      margin-bottom: 25px;
+    }
+
+    /* Thanh kỹ năng (Skills) */
+    .skill-item {
+      margin-bottom: 12px;
+    }
+
+    .skill-name {
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+
+    .skill-bar {
+      height: 14px;
+      background-color: #cccccc;
+      position: relative;
+      /* Tạo các vạch chia cấp độ 0-6 */
+      background-image: linear-gradient(to right, 
+        transparent 16.5%, #ffffff 16.5%, #ffffff 17.5%, 
+        transparent 17.5%, transparent 33.1%, #ffffff 33.1%, #ffffff 34.1%, 
+        transparent 34.1%, transparent 49.7%, #ffffff 49.7%, #ffffff 50.7%, 
+        transparent 50.7%, transparent 66.3%, #ffffff 66.3%, #ffffff 67.3%, 
+        transparent 67.3%, transparent 82.9%, #ffffff 82.9%, #ffffff 83.9%, transparent 83.9%);
+    }
+
+    .skill-fill {
+      height: 100%;
+      background-color: #3b5998;
+    }
+
+    .skill-note {
+      font-size: 9px;
+      color: #555;
+      margin-top: 15px;
+      line-height: 1.2;
+    }
+
+
+    /* ================= CỘT BÊN PHẢI (MAIN CONTENT) ================= */
+    .main-content {
+      width: 68%;
+      padding: 25px 25px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    /* Ký tự đầu tiên có nền nổi bật của tiêu đề */
+    .section-title {
+      font-size: 20px;
+      color: #555;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    .section-title .badge {
+      background-color: #3b5998;
+      color: #fff;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 1px;
+    }
+
+    .section-desc {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    /* Bố cục danh sách cho Education, Publications, Experience... */
+    .item-row {
+      display: flex;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .item-icon {
+      width: 20px;
+      font-size: 12px;
+      color: #333;
+    }
+
+    .item-date {
+      width: 75px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .item-details {
+      flex-grow: 1;
+      padding-right: 10px;
+    }
+
+    .item-title {
+      font-weight: normal;
+    }
+
+    .item-sub {
+      font-style: italic;
+      color: #222;
+    }
+
+    .item-location {
+      width: 80px;
+      text-align: right;
+      font-size: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cv-container">
+    
+    <!-- CỘT BÊN TRÁI -->
+    <div class="sidebar">
+      <div class="profile-img-container">
+        <img src="NVP.png" alt="Nguyễn Văn Phú" class="profile-img">
+      </div>
+
+      <div class="name-title">
+        <h1>Nguyễn Văn Phú</h1>
+        <p>Software Engineer</p>
+      </div>
+
+      <ul class="contact-list">
+        <li>
+          <span class="icon"><i class="fa-solid fa-cake-candles"></i></span>
+          26 November 2004
+        </li>
+        <li>
+          <span class="icon"><i class="fa-solid fa-paper-plane"></i></span>
+          Vietnam
+        </li>
+        <li>
+          <span class="icon"><i class="fa-solid fa-phone"></i></span>
+          +84 930213942
+        </li>
+        <li>
+          <span class="icon"><i class="fa-solid fa-globe"></i></span>
+          <a href="http://en.wikipedia.org" target="_blank">http://en.wikipedia.org</a>
+        </li>
+        <li>
+          <span class="icon"><i class="fa-solid fa-at"></i></span>
+          nvpa2222@gmail.com
+        </li>
+      </ul>
+
+      <h2 class="sidebar-title">About me</h2>
+      <p class="about-me-text">
+        I am a student in Information and Technology, i love exploring new technologies and solving complex problems, looking forward to a internship opportunity in Web developer, Tester for practical experience.
+      </p>
+
+      <h2 class="sidebar-title">Skill</h2>
+      
+      <div class="skill-item">
+        <div class="skill-name">Java</div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 80%;"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-name">HTML</div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 65%;"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-name">CSS3</div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 52%;"></div></div>
+      </div>
+
+      <div class="skill-item">
+        <div class="skill-name">C++</div>
+        <div class="skill-bar"><div class="skill-fill" style="width: 38%;"></div></div>
+      </div>
+
+       
+
+      <div class="skill-note">
+        *<br><br>
+        (*)[The skill scale is from 0 (Fundamental Awareness) to 6 (Expert).]
+      </div>
+    </div>
+
+    <!-- CỘT BÊN PHẢI -->
+    <div class="main-content">
+      
+      <!-- Interests -->
+      <div class="section">
+        <h2 class="section-title"><span class="badge">Interests</span></h2>
+        <p class="section-desc">
+          I have a strong interest in web development, particularly in front-end technologies.
+
+      <!-- Education -->
+      <div class="section">
+        <h2 class="section-title"><span class="badge">Education</span></h2>
+        
+        <div class="item-row">
+          <div class="item-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="item-date">2022-2026</div>
+          <div class="item-details">
+            <div class="item-title">Student at UTH</div>
+            <div class="item-sub">University of Transportation</div>
+          </div>
+          <div class="item-location">HCMC</div>
+        </div>
+
+        
+        <div class="item-row">
+          <div class="item-icon"><i class="fa-solid fa-book"></i></div>
+          <div class="item-date">2018-2022</div>
+          <div class="item-details">
+            <div class="item-title">Nguyen Hue High school</div>
+            <div class="item-sub">Specializing in mathematics and physics.</div>
+          </div>
+          <div class="item-location">HCMC</div>
+        </div>
+      </div>
+
+      <!-- Publications -->
+      <div class="section">
+        <h2 class="section-title"><span class="badge"><i class="fa-solid fa-file-lines"></i></span> Certification</h2>
+        
+        <div class="item-row">
+          <div class="item-date">2025</div>
+          <div class="item-details">TOEFL 700.</div>
+        </div>
+        
+        <div class="item-row">
+          <div class="item-date">2026</div>
+          <div class="item-details">Google cloud certifcate.</div>
+        </div>
+        
+      
+
+      <!-- Experience -->
+      <div class="section">
+        <h2 class="section-title"><span class="badge">Experience</span></h2>
+        
+        <div class="item-row">
+          <div class="item-date">2024</div>
+          <div class="item-details">
+            <div class="item-title">Intern at Viettel</div>
+            <div class="item-sub"></div>
+          </div>
+          <div class="item-location">HCMC</div>
+        </div>
+
+        <div class="item-row">
+          <div class="item-date">2025</div>
+          <div class="item-details">
+            <div class="item-title">Voluntary work at local community center</div>
+            <div class="item-sub"></div>
+          </div>
+          <div class="item-location">HCMC</div>
+        </div>
+
+        
+
+      <!-- Other information -->
+      <div class="section">
+        <h2 class="section-title"><span class="badge">Other Information</span></h2>
+        <p class="section-desc">
+          
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
